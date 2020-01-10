@@ -1,0 +1,42 @@
+﻿<Window x:Class="WPFNetfluxProj.AddNewFavourite"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFNetfluxProj"
+        mc:Ignorable="d"
+        Title="Add New Favourite Movie" Height="450" Width="1000">
+    <Grid>
+        <ListView   x:Name="movieDetailsView" HorizontalAlignment="Left" Height="360" Margin="30,30,0,0" VerticalAlignment="Top" Width="930" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="150" Header="Titel" DisplayMemberBinding="{Binding Titel}"/>
+                    <GridViewColumn Width="150" Header="Genre" DisplayMemberBinding="{Binding Genre}"/>
+                    <GridViewColumn Width="150" Header="Rating" DisplayMemberBinding="{Binding Rating}"/>
+                    <GridViewColumn Width="150" Header="Release" DisplayMemberBinding="{Binding Release}"/>
+                    <GridViewColumn Width="150" Header="Playtime" DisplayMemberBinding="{Binding Playtime}"/>
+                    <GridViewColumn Width="150" Header="Choose Favourites">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button
+                                    x:Name="ChooseFavourite"
+                       Content="Add to Favourites"
+                       Margin="0"
+                       Tag="{Binding Id}" 
+                       VerticalAlignment="Center"
+                       Click="ChooseFavourite_Click" 
+                        />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="LogOffButton"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="100" Margin="140,6,0,0"    
+   Content="Logoff" Click="LogOffButton_Click" >
+        </Button>
+        <Button x:Name="BackToFovourites" Content="Back to Favourites" Click="BackToFovourites_Click" HorizontalAlignment="Left" Margin="30,6,0,0" VerticalAlignment="Top" Width="100" Height="20"/>
+
+    </Grid>
+</Window>

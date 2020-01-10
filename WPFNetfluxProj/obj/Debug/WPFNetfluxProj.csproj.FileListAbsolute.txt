@@ -1,0 +1,96 @@
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.exe.config
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.exe
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.pdb
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\MainWindow.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\App.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_Content.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_MarkupCompile.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_MarkupCompile.lref
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\MainWindow.baml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.g.resources
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.Properties.Resources.resources
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.CopyComplete
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.exe
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.pdb
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.exe
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.exe.config
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\UserFavourites.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\UserLogin.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\App.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_Content.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_MarkupCompile.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_MarkupCompile.lref
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\UserFavourites.baml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\UserLogin.baml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.g.resources
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.Properties.Resources.resources
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.CopyComplete
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.exe
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.pdb
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.pdb
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\AddNewFavourite.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\backupWPFNetflux\12dec 12.28\WPFNetfluxProj\obj\Debug\AddNewFavourite.baml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.exe.config
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.exe
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.pdb
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\AddNewFavourite.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\UserFavourites.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\UserLogin.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\App.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_Content.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_MarkupCompile.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_MarkupCompile.lref
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\AddNewFavourite.baml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\UserFavourites.baml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\UserLogin.baml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.g.resources
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.Properties.Resources.resources
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.CopyComplete
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.exe
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.pdb
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.exe.config
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.exe
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\bin\Debug\WPFNetfluxProj.pdb
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\AddNewFavourite.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\UserFavourites.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\UserLogin.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\App.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_Content.g.cs
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_MarkupCompile.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj_MarkupCompile.lref
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\AddNewFavourite.baml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\UserFavourites.baml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\UserLogin.baml
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.g.resources
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.Properties.Resources.resources
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.csproj.CopyComplete
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.exe
+C:\Users\Administrator\Documents\H2\databaseprogrammering\WPF_Projekt_Aflevering\WPFNetfluxProj\obj\Debug\WPFNetfluxProj.pdb

@@ -1,0 +1,33 @@
+﻿<Window x:Class="WPFNetfluxProj.UserLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFNetfluxProj" 
+        mc:Ignorable="d"
+                      Height="415" Width="408" 
+        Title="Login-Page" >
+    <Grid>
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid Margin="25" x:Name="logonForm">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" FontSize="24" Text="Username: " />
+                <TextBox x:Name="username" Grid.Row="0" Grid.Column="1" FontSize="22" />
+
+                <TextBlock Grid.Row="1" FontSize="24" Text="Password:" />
+                <PasswordBox x:Name="password" Grid.Row="1" Grid.Column="1" FontSize="22" />
+                <Button Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Login" FontSize="22" Click="LogonButton_Click" Margin="118,0,142.4,-0.4" />
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

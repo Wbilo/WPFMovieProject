@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StreamingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Actor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="ActorRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActorId" Type="int" />
+          <Property Name="FilmId" Type="int" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Favorites">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="FilmId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Film">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titel" Type="nvarchar" MaxLength="100" />
+          <Property Name="Picture" Type="varbinary(max)" />
+          <Property Name="Genre" Type="nvarchar" MaxLength="500" />
+          <Property Name="Rating" Type="float" />
+          <Property Name="Release" Type="datetime2" Precision="7" />
+          <Property Name="Expired" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="FilmDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+          <Property Name="FilmId" Type="int" />
+          <Property Name="Playtime" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserInfoId" Type="int" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="Zipcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreditcardId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Streaming.dbo.filmTitle' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="filmTitle">
+          <Property Name="Titel" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+        </EntityType>-->
+        <Association Name="FK_ActorRole_Actor">
+          <End Role="Actor" Type="Self.Actor" Multiplicity="0..1" />
+          <End Role="ActorRole" Type="Self.ActorRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActorRole">
+              <PropertyRef Name="ActorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActorRole_Film">
+          <End Role="Film" Type="Self.Film" Multiplicity="0..1" />
+          <End Role="ActorRole" Type="Self.ActorRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActorRole">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favorites_Film">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
+          <End Role="Favorites" Type="Self.Favorites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Favorites">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favorites_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Favorites" Type="Self.Favorites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Favorites">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_FilmIDStuff">
+          <End Role="Film" Type="Self.Film" Multiplicity="0..1" />
+          <End Role="FilmDetails" Type="Self.FilmDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FilmDetails">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="JoinActor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Joins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="rightJoin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectActorName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SelectTopMovies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UnionSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="StreamingModelStoreContainer">
+          <EntitySet Name="Actor" EntityType="Self.Actor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActorRole" EntityType="Self.ActorRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favorites" EntityType="Self.Favorites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Film" EntityType="Self.Film" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FilmDetails" EntityType="Self.FilmDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ActorRole_Actor" Association="Self.FK_ActorRole_Actor">
+            <End Role="Actor" EntitySet="Actor" />
+            <End Role="ActorRole" EntitySet="ActorRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActorRole_Film" Association="Self.FK_ActorRole_Film">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="ActorRole" EntitySet="ActorRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favorites_Film" Association="Self.FK_Favorites_Film">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="Favorites" EntitySet="Favorites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favorites_User" Association="Self.FK_Favorites_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Favorites" EntitySet="Favorites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_FilmIDStuff" Association="Self.FK_User_FilmIDStuff">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="FilmDetails" EntitySet="FilmDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserInfo" Association="Self.FK_User_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StreamingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Actor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ActorRoles" Relationship="Self.FK_ActorRole_Actor" FromRole="Actor" ToRole="ActorRole" />
+        </EntityType>
+        <EntityType Name="ActorRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActorId" Type="Int32" />
+          <Property Name="FilmId" Type="Int32" />
+          <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Actor" Relationship="Self.FK_ActorRole_Actor" FromRole="ActorRole" ToRole="Actor" />
+          <NavigationProperty Name="Film" Relationship="Self.FK_ActorRole_Film" FromRole="ActorRole" ToRole="Film" />
+        </EntityType>
+        <EntityType Name="Favorite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="FilmId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Film" Relationship="Self.FK_Favorites_Film" FromRole="Favorites" ToRole="Film" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Favorites_User" FromRole="Favorites" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Film">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Genre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Rating" Type="Double" />
+          <Property Name="Release" Type="DateTime" Precision="7" />
+          <Property Name="Expired" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ActorRoles" Relationship="Self.FK_ActorRole_Film" FromRole="Film" ToRole="ActorRole" />
+          <NavigationProperty Name="Favorites" Relationship="Self.FK_Favorites_Film" FromRole="Film" ToRole="Favorites" />
+          <NavigationProperty Name="FilmDetails" Relationship="Self.FK_User_FilmIDStuff" FromRole="Film" ToRole="FilmDetails" />
+        </EntityType>
+        <EntityType Name="FilmDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="FilmId" Type="Int32" />
+          <Property Name="Playtime" Type="Int32" />
+          <NavigationProperty Name="Film" Relationship="Self.FK_User_FilmIDStuff" FromRole="FilmDetails" ToRole="Film" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserInfoId" Type="Int32" />
+          <NavigationProperty Name="Favorites" Relationship="Self.FK_Favorites_User" FromRole="User" ToRole="Favorites" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK_User_UserInfo" FromRole="User" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Zipcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreditcardId" Type="Int32" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_UserInfo" FromRole="UserInfo" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_ActorRole_Actor">
+          <End Role="Actor" Type="Self.Actor" Multiplicity="0..1" />
+          <End Role="ActorRole" Type="Self.ActorRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActorRole">
+              <PropertyRef Name="ActorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActorRole_Film">
+          <End Role="Film" Type="Self.Film" Multiplicity="0..1" />
+          <End Role="ActorRole" Type="Self.ActorRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActorRole">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favorites_Film">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
+          <End Role="Favorites" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Favorites">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favorites_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Favorites" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Favorites">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_FilmIDStuff">
+          <End Role="Film" Type="Self.Film" Multiplicity="0..1" />
+          <End Role="FilmDetails" Type="Self.FilmDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FilmDetails">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StreamingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actors" EntityType="Self.Actor" />
+          <EntitySet Name="ActorRoles" EntityType="Self.ActorRole" />
+          <EntitySet Name="Favorites" EntityType="Self.Favorite" />
+          <EntitySet Name="Films" EntityType="Self.Film" />
+          <EntitySet Name="FilmDetails" EntityType="Self.FilmDetail" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+          <AssociationSet Name="FK_ActorRole_Actor" Association="Self.FK_ActorRole_Actor">
+            <End Role="Actor" EntitySet="Actors" />
+            <End Role="ActorRole" EntitySet="ActorRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActorRole_Film" Association="Self.FK_ActorRole_Film">
+            <End Role="Film" EntitySet="Films" />
+            <End Role="ActorRole" EntitySet="ActorRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favorites_Film" Association="Self.FK_Favorites_Film">
+            <End Role="Film" EntitySet="Films" />
+            <End Role="Favorites" EntitySet="Favorites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favorites_User" Association="Self.FK_Favorites_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Favorites" EntitySet="Favorites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_FilmIDStuff" Association="Self.FK_User_FilmIDStuff">
+            <End Role="Film" EntitySet="Films" />
+            <End Role="FilmDetails" EntitySet="FilmDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserInfo" Association="Self.FK_User_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <FunctionImport Name="JoinActor" ReturnType="Collection(StreamingModel.JoinActor_Result)" />
+          <FunctionImport Name="Joins" ReturnType="Collection(StreamingModel.Joins_Result)" />
+          <FunctionImport Name="rightJoin" ReturnType="Collection(StreamingModel.rightJoin_Result)" />
+          <FunctionImport Name="SelectActorName" ReturnType="Collection(StreamingModel.SelectActorName_Result)">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectTopMovies" ReturnType="Collection(StreamingModel.SelectTopMovies_Result)" />
+          <FunctionImport Name="UnionSelect" ReturnType="Collection(StreamingModel.UnionSelect_Result)" />
+        </EntityContainer>
+        <ComplexType Name="JoinActor_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="Id1" Nullable="false" />
+          <Property Type="Int32" Name="ActorId" Nullable="true" />
+          <Property Type="Int32" Name="FilmId" Nullable="true" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="Joins_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="Id1" Nullable="false" />
+          <Property Type="Int32" Name="ActorId" Nullable="true" />
+          <Property Type="Int32" Name="FilmId" Nullable="true" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Id2" Nullable="false" />
+          <Property Type="String" Name="Titel" Nullable="true" MaxLength="100" />
+          <Property Type="Binary" Name="Picture" Nullable="true" />
+          <Property Type="String" Name="Genre" Nullable="true" MaxLength="500" />
+          <Property Type="Double" Name="Rating" Nullable="true" />
+          <Property Type="DateTime" Name="Release" Nullable="true" />
+          <Property Type="DateTime" Name="Expired" Nullable="true" />
+          <Property Type="Int32" Name="Id3" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="2000" />
+          <Property Type="Int32" Name="FilmId1" Nullable="true" />
+          <Property Type="Int32" Name="Playtime" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="rightJoin_Result">
+          <Property Type="Int32" Name="Id" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="Id1" Nullable="false" />
+          <Property Type="Int32" Name="ActorId" Nullable="true" />
+          <Property Type="Int32" Name="FilmId" Nullable="true" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SelectActorName_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="SelectTopMovies_Result">
+          <Property Type="Int32" Name="ActorId" Nullable="true" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="UnionSelect_Result">
+          <Property Type="Int32" Name="ActorId" Nullable="true" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="200" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StreamingModelStoreContainer" CdmEntityContainer="StreamingEntities">
+          <EntitySetMapping Name="Actors">
+            <EntityTypeMapping TypeName="StreamingModel.Actor">
+              <MappingFragment StoreEntitySet="Actor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActorRoles">
+            <EntityTypeMapping TypeName="StreamingModel.ActorRole">
+              <MappingFragment StoreEntitySet="ActorRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favorites">
+            <EntityTypeMapping TypeName="StreamingModel.Favorite">
+              <MappingFragment StoreEntitySet="Favorites">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Films">
+            <EntityTypeMapping TypeName="StreamingModel.Film">
+              <MappingFragment StoreEntitySet="Film">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Titel" ColumnName="Titel" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Release" ColumnName="Release" />
+                <ScalarProperty Name="Expired" ColumnName="Expired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilmDetails">
+            <EntityTypeMapping TypeName="StreamingModel.FilmDetail">
+              <MappingFragment StoreEntitySet="FilmDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="Playtime" ColumnName="Playtime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="StreamingModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="StreamingModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="CreditcardId" ColumnName="CreditcardId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="JoinActor" FunctionName="StreamingModel.Store.JoinActor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StreamingModel.JoinActor_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id1" ColumnName="Id1" />
+                <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Joins" FunctionName="StreamingModel.Store.Joins">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StreamingModel.Joins_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id1" ColumnName="Id1" />
+                <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Id2" ColumnName="Id2" />
+                <ScalarProperty Name="Titel" ColumnName="Titel" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Release" ColumnName="Release" />
+                <ScalarProperty Name="Expired" ColumnName="Expired" />
+                <ScalarProperty Name="Id3" ColumnName="Id3" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FilmId1" ColumnName="FilmId1" />
+                <ScalarProperty Name="Playtime" ColumnName="Playtime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="rightJoin" FunctionName="StreamingModel.Store.rightJoin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StreamingModel.rightJoin_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id1" ColumnName="Id1" />
+                <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectActorName" FunctionName="StreamingModel.Store.SelectActorName">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StreamingModel.SelectActorName_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectTopMovies" FunctionName="StreamingModel.Store.SelectTopMovies">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StreamingModel.SelectTopMovies_Result">
+                <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UnionSelect" FunctionName="StreamingModel.Store.UnionSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StreamingModel.UnionSelect_Result">
+                <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
